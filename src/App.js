@@ -14,10 +14,14 @@ const Sidebar = () => {
             src="ProfilePicture.png"
             className="sidebar-profile-img"
           />
-          <p className="sidebar-content">
+          <p className="sidebar-about">
             ProxyCat provides actionable tips and tricks about frontend
             programming (design, security, accesibility, and much more). The
-            project is maintained by <strong>Andrés Banda</strong>.
+            project is maintained by{" "}
+            <a href="https://andresbanda.com" target="_blank">
+              <strong>Andrés Banda</strong>
+            </a>
+            .
           </p>
         </div>
         <div className="sidebar-coffe-container">

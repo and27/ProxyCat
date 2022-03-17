@@ -16,10 +16,13 @@
   display: flex;
   flex-direction: column;
 }
-.sidebar-content {
+.sidebar-about {
   max-width: 80%;
   margin: 0 auto;
   margin-top: 2rem;
+}
+.sidebar-about a {
+  text-decoration: none;
 }
 
 .sidebar-profile-img {
