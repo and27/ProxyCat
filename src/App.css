@@ -89,6 +89,17 @@
 .snack-title {
   font-weight: 600;
 }
+.snack-category {
+  background-color: black;
+  color: white;
+  display: inline;
+  padding: 0 2rem;
+  border-radius: 5px;
+}
+.snack-category::before {
+  content: "#";
+}
+
 .snack-image {
   width: 20rem;
   margin-top: 3rem;

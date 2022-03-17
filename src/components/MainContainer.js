@@ -57,6 +57,7 @@ const MainContainer = () => {
           <img src="logo.png" className="main-logo" />
         </header>
         <h1 className="mt-5 snack-title">{infoSnacks[rand].title}</h1>
+        <p className="snack-category">{infoSnacks[rand].category}</p>
         <div className="snack-container">
           <div className="snack-info">
             {infoSnacks[rand].snacks.map((info, idx) => (

@@ -1,5 +1,6 @@
 const snackCSS = {
   title: "CSS Frameworks",
+  category: "CSS",
   snacks: [
     {
       imageUrl: "https://thumbs4.imagebam.com/e5/f5/aa/ME8JL7A_t.png",
@@ -25,6 +26,7 @@ const snackCSS = {
 
 const snackTest = {
   title: "Em vs Rem",
+  category: "Responsive design",
   snacks: [
     {
       subtitle: "Em",
@@ -41,6 +43,7 @@ const snackTest = {
 
 const snackTechPlatforms = {
   title: "Platforms to learn coding",
+  category: "General",
   snacks: [
     {
       imageUrl:
