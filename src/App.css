@@ -28,7 +28,25 @@
 }
 
 .sidebar-coffe-img {
-  max-width: 3rem;
+  max-width: 2.5rem;
+}
+.sidebar-coffe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sidebar-coffe-circle {
+  background-color: #fedc00;
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar-coffe-circle:hover {
+  background-color: #e2c504;
+  cursor: pointer;
 }
 
 .social-footer {

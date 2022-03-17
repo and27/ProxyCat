@@ -20,9 +20,11 @@ const Sidebar = () => {
             project is maintained by <strong>Andrés Banda</strong>.
           </p>
         </div>
-        <div>
+        <div className="sidebar-coffe-container">
           <h4 className="mt-5">Invites us a coffe</h4>
-          <img src="coffe.png" className="sidebar-coffe-img" />
+          <div className="sidebar-coffe-circle">
+            <img src="coffe_transparent.png" className="sidebar-coffe-img" />
+          </div>
         </div>
         <div>
           <SocialFooter />
