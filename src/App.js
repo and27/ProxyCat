@@ -1,6 +1,7 @@
 import "./App.css";
 
 import MainContainer from "./components/MainContainer";
+import SocialFooter from "./components/SocialFooter";
 
 const Sidebar = () => {
   return (
@@ -22,6 +23,9 @@ const Sidebar = () => {
         <div>
           <h4 className="mt-5">Invites us a coffe</h4>
           <img src="coffe.png" className="sidebar-coffe-img" />
+        </div>
+        <div>
+          <SocialFooter />
         </div>
       </section>
     </>
