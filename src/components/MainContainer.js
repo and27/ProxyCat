@@ -1,13 +1,18 @@
 import { useState, useEffect } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { FaRedo } from "react-icons/fa";
 import infoSnacks from "../SnacksContent";
+import BasicModal from "./BasicModal";
 import InfoContainer from "./InfoContainer";
+import ModalBody from "./ModalBody";
 
 const MainContainer = () => {
   const [attempts, setAttempts] = useState(3);
   const [rand, setRand] = useState(0);
   const [animate, setAnimate] = useState("");
+  const [show, setShow] = useState(false);
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
 
   //TODO: handle true random snacks
   const min = 0;
@@ -40,9 +45,13 @@ const MainContainer = () => {
       setNewRand();
       animateInfo();
     }
+    if (attempts === 0) {
+      handleShow();
+    }
   };
   return (
     <>
+      <BasicModal show={show} handleClose={handleClose} modalBody={ModalBody} />
       <section className="global-container">
         <header>
           <img src="logo.png" className="main-logo" />
@@ -60,7 +69,7 @@ const MainContainer = () => {
               />
             ))}
           </div>
-          <div>
+          <div className="snack-image-button">
             <img
               aria-label="cat profile picture"
               src="programmingCat.png"
