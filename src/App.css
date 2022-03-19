@@ -35,6 +35,27 @@
   margin-top: 2rem;
 }
 
+.sidebar-badge {
+  background-color: rgb(255, 238, 0);
+  color: black;
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 5px;
+  border-radius: 8px;
+  font-size: 16px;
+  animation-duration: 2s;
+  animation-name: example;
+}
+
+@keyframes example {
+  from {
+    transform: scale(1.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 .sidebar-coffe-img {
   max-width: 2.5rem;
 }
@@ -191,6 +212,7 @@
     width: 100% !important;
     min-height: 4rem;
   }
+
   .social-footer {
     position: static;
   }

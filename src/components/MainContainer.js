@@ -4,9 +4,8 @@ import { FaRedo } from "react-icons/fa";
 import infoSnacks from "../SnacksContent";
 import BasicModal from "./BasicModal";
 import InfoContainer from "./InfoContainer";
-import ModalBody from "./ModalBody";
 
-const MainContainer = () => {
+const MainContainer = ({ isActive, setIsActive }) => {
   const [attempts, setAttempts] = useState(3);
   const [rand, setRand] = useState(0);
   const [animate, setAnimate] = useState("");
@@ -49,10 +48,22 @@ const MainContainer = () => {
       handleShow();
     }
   };
+
+  const handleActivation = (code) => {
+    if (code === "123ABC123") {
+      setShow(false);
+      setIsActive(true);
+      setAttempts(1000);
+    }
+  };
+
   return (
     <>
-      <BasicModal show={show} handleClose={handleClose} modalBody={ModalBody} />
-
+      <BasicModal
+        show={show}
+        handleClose={handleClose}
+        handleActivation={handleActivation}
+      />
       <section className="global-container">
         <header>
           <img src="proxycat_logo.svg" className="main-logo" />
@@ -83,7 +94,7 @@ const MainContainer = () => {
                 <FaRedo style={{ marginRight: "10px" }} />
                 Get snack
               </Button>
-              <p> {attempts} snacks left today.</p>
+              {!isActive && <p> {attempts} snacks left today.</p>}
             </div>
           </div>
         </div>
