@@ -5,6 +5,11 @@
   display: flex;
 }
 
+.header-subtitle {
+  letter-spacing: 3px;
+  font-size: 11px;
+}
+
 /* ProxyCat styles */
 .sidebar {
   width: 30%;
@@ -85,7 +90,11 @@
   min-height: 100vh;
   text-align: center;
   background-color: #efefef;
+  background: url("../public/background_figure.png") no-repeat center center
+    fixed;
+  background-size: cover;
 }
+
 .snack-title {
   font-weight: 600;
 }

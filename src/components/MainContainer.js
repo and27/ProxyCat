@@ -52,9 +52,11 @@ const MainContainer = () => {
   return (
     <>
       <BasicModal show={show} handleClose={handleClose} modalBody={ModalBody} />
+
       <section className="global-container">
         <header>
-          <img src="logo.png" className="main-logo" />
+          <img src="proxycat_logo.svg" className="main-logo" />
+          <p className="header-subtitle">FRONTEND TIPS</p>
         </header>
         <h1 className="mt-5 snack-title">{infoSnacks[rand].title}</h1>
         <p className="snack-category">{infoSnacks[rand].category}</p>
@@ -81,7 +83,7 @@ const MainContainer = () => {
                 <FaRedo style={{ marginRight: "10px" }} />
                 Get snack
               </Button>
-              <p>You have {attempts} attemps left</p>
+              <p> {attempts} snacks left today.</p>
             </div>
           </div>
         </div>
