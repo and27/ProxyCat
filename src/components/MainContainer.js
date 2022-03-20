@@ -6,7 +6,7 @@ import BasicModal from "./BasicModal";
 import InfoContainer from "./InfoContainer";
 
 const MainContainer = ({ isActive, setIsActive }) => {
-  const [attempts, setAttempts] = useState(3);
+  const [attempts, setAttempts] = useState(0);
   const [rand, setRand] = useState(0);
   const [animate, setAnimate] = useState("");
   const [show, setShow] = useState(false);
@@ -18,7 +18,7 @@ const MainContainer = ({ isActive, setIsActive }) => {
   const max = 2;
   const setNewRand = () => {
     // const randNumber = Math.floor(Math.random() * (max - min)) + min
-    setRand((rand + 1) % 3);
+    setRand((rand + 1) % 6);
   };
 
   const animationTimeOut = async () => {
@@ -39,21 +39,20 @@ const MainContainer = ({ isActive, setIsActive }) => {
   }, []);
 
   const handleNewSnack = () => {
-    if (attempts > 0) {
-      setAttempts(attempts - 1);
+    console.log(attempts);
+    if (attempts > 2 && !isActive) {
+      handleShow();
+    } else {
+      setAttempts(attempts + 1);
       setNewRand();
       animateInfo();
-    }
-    if (attempts === 0) {
-      handleShow();
     }
   };
 
   const handleActivation = (code) => {
-    if (code === "123ABC123") {
+    if (code === "123qweasd") {
       setShow(false);
       setIsActive(true);
-      setAttempts(1000);
     }
   };
 
@@ -94,7 +93,7 @@ const MainContainer = ({ isActive, setIsActive }) => {
                 <FaRedo style={{ marginRight: "10px" }} />
                 Get snack
               </Button>
-              {!isActive && <p> {attempts} snacks left today.</p>}
+              {!isActive && <p> {3 - attempts} snacks left today.</p>}
             </div>
           </div>
         </div>
