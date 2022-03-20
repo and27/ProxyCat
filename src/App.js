@@ -1,9 +1,10 @@
+import { useState } from "react";
 import "./App.css";
 
 import MainContainer from "./components/MainContainer";
 import SocialFooter from "./components/SocialFooter";
 
-const Sidebar = () => {
+const Sidebar = ({ isActive }) => {
   return (
     <>
       <section className="sidebar">
@@ -14,6 +15,7 @@ const Sidebar = () => {
             src="ProfilePicture.png"
             className="sidebar-profile-img"
           />
+          {isActive && <p className="sidebar-badge">PRO</p>}
           <p className="sidebar-about">
             ProxyCat provides actionable tips and tricks about frontend
             programming (design, security, accesibility, and much more). The
@@ -39,10 +41,12 @@ const Sidebar = () => {
 };
 
 function App() {
+  const [isActive, setIsActive] = useState();
+
   return (
     <div className="App">
-      <MainContainer />
-      <Sidebar />
+      <MainContainer setIsActive={setIsActive} isActive={isActive} />
+      <Sidebar isActive={isActive} />
     </div>
   );
 }

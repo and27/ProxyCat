@@ -68,6 +68,93 @@ const snackTechPlatforms = {
     },
   ],
 };
-const infoSnacks = [snackCSS, snackTest, snackTechPlatforms];
+const snackWCAG = {
+  title: "WCAG Principals",
+  category: "Accesibility",
+  snacks: [
+    {
+      subtitle: "Perceivable",
+      description:
+        "Content must be consumable by screen readers and other assistive technologies.",
+    },
+    {
+      subtitle: "Operable",
+      description:
+        "Keyboard accesible. Control animations, and provide enought time limits for completing actions like submitting forms.",
+    },
+    {
+      subtitle: "Understandable",
+      description:
+        "Use clear and concise language. Provide clear labels and understandable flows",
+    },
+    {
+      subtitle: "Robust",
+      description: "Clean code consumable across different platforms",
+    },
+  ],
+};
+
+const snackJSFrameworks = {
+  title: "JS Frameworks Learning Curve",
+  category: "JavaScript",
+  snacks: [
+    {
+      imageUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1184px-Vue.js_Logo_2.svg.png",
+      subtitle: "Vue",
+      description:
+        "Easiest learning Curve. Vue.js syntax is similar to JavaScript basics and HTML",
+    },
+    {
+      imageUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/1200px-React.svg.png",
+      subtitle: "React",
+      description:
+        "The learning curve is considered intermediate. The React strategy is: 'everything is JavaScript'",
+    },
+    {
+      imageUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png",
+      subtitle: "Angular",
+      description:
+        "The ussage of TypeScript makes Angular the more difficult among these three frameworks.",
+    },
+  ],
+};
+
+const snackJSDate = {
+  title: "JS Date Libraries",
+  category: "JavaScript",
+  snacks: [
+    {
+      imageUrl: "https://www.drupal.org/files/project-images/moment.png",
+      subtitle: "Moment",
+      description:
+        "Popular Library used by many developers for more than 9 years.",
+    },
+    {
+      imageUrl:
+        "https://www.bypeople.com/wp-content/uploads/2018/10/date-fns-js-featured-4.png",
+      subtitle: "Date-fns",
+      description:
+        "A simple and consisten set of tools for manupulating tools.",
+    },
+    {
+      imageUrl:
+        "https://moment.github.io/luxon/docs/_media/Luxon_icon_64x64.png",
+      subtitle: "Luxon",
+      description:
+        "A powerful, modern, and friendly wrapper for JavaScript dates and times.",
+    },
+  ],
+};
+const infoSnacks = [
+  snackCSS,
+  snackTest,
+  snackTechPlatforms,
+  snackWCAG,
+  snackJSFrameworks,
+  snackJSDate,
+];
 
 export default infoSnacks;

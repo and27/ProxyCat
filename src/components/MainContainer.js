@@ -4,10 +4,9 @@ import { FaRedo } from "react-icons/fa";
 import infoSnacks from "../SnacksContent";
 import BasicModal from "./BasicModal";
 import InfoContainer from "./InfoContainer";
-import ModalBody from "./ModalBody";
 
-const MainContainer = () => {
-  const [attempts, setAttempts] = useState(3);
+const MainContainer = ({ isActive, setIsActive }) => {
+  const [attempts, setAttempts] = useState(0);
   const [rand, setRand] = useState(0);
   const [animate, setAnimate] = useState("");
   const [show, setShow] = useState(false);
@@ -19,7 +18,7 @@ const MainContainer = () => {
   const max = 2;
   const setNewRand = () => {
     // const randNumber = Math.floor(Math.random() * (max - min)) + min
-    setRand((rand + 1) % 3);
+    setRand((rand + 1) % 6);
   };
 
   const animationTimeOut = async () => {
@@ -40,21 +39,34 @@ const MainContainer = () => {
   }, []);
 
   const handleNewSnack = () => {
-    if (attempts > 0) {
-      setAttempts(attempts - 1);
+    console.log(attempts);
+    if (attempts > 2 && !isActive) {
+      handleShow();
+    } else {
+      setAttempts(attempts + 1);
       setNewRand();
       animateInfo();
     }
-    if (attempts === 0) {
-      handleShow();
+  };
+
+  const handleActivation = (code) => {
+    if (code === "123qweasd") {
+      setShow(false);
+      setIsActive(true);
     }
   };
+
   return (
     <>
-      <BasicModal show={show} handleClose={handleClose} modalBody={ModalBody} />
+      <BasicModal
+        show={show}
+        handleClose={handleClose}
+        handleActivation={handleActivation}
+      />
       <section className="global-container">
         <header>
-          <img src="logo.png" className="main-logo" />
+          <img src="proxycat_logo.svg" className="main-logo" />
+          <p className="header-subtitle">FRONTEND TIPS</p>
         </header>
         <h1 className="mt-5 snack-title">{infoSnacks[rand].title}</h1>
         <p className="snack-category">{infoSnacks[rand].category}</p>
@@ -81,7 +93,7 @@ const MainContainer = () => {
                 <FaRedo style={{ marginRight: "10px" }} />
                 Get snack
               </Button>
-              <p>You have {attempts} attemps left</p>
+              {!isActive && <p> {3 - attempts} snacks left today.</p>}
             </div>
           </div>
         </div>
