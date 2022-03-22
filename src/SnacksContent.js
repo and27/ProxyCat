@@ -148,6 +148,32 @@ const snackJSDate = {
     },
   ],
 };
+
+const snackContrastChecker = {
+  title: "Check your website color contrast ratio",
+  category: "Accesibility",
+  snacks: [
+    {
+      imageUrl: "https://webaim.org/media/logo.png",
+      subtitle: "webaim.org",
+      description:
+        "Type in the RGB hexadecimal codes for both the foreground and background colors.",
+    },
+    {
+      imageUrl: "https://userway.org/brand/userway_logo.png",
+      subtitle: "userway.org",
+      description:
+        "Type in the RGB hexadecimal codes for both the foreground and background colors.",
+    },
+    {
+      imageUrl:
+        "https://1000marcas.net/wp-content/uploads/2020/01/logo-Mozilla-Firefox.png",
+      subtitle: "Plugin for Firefox",
+      description:
+        "Checks for compliance with the contrast levels, brightness and shine in the color combination of foreground and background ",
+    },
+  ],
+};
 const infoSnacks = [
   snackCSS,
   snackTest,
@@ -155,6 +181,7 @@ const infoSnacks = [
   snackWCAG,
   snackJSFrameworks,
   snackJSDate,
+  snackContrastChecker,
 ];
 
 export default infoSnacks;

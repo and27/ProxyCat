@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
-import { FaRedo } from "react-icons/fa";
+import { FaRedo, FaRegEye, FaRegHeart, FaRegStar } from "react-icons/fa";
 import infoSnacks from "../SnacksContent";
 import BasicModal from "./BasicModal";
 import InfoContainer from "./InfoContainer";
@@ -18,7 +18,7 @@ const MainContainer = ({ isActive, setIsActive }) => {
   const max = 2;
   const setNewRand = () => {
     // const randNumber = Math.floor(Math.random() * (max - min)) + min
-    setRand((rand + 1) % 6);
+    setRand((rand + 1) % 7);
   };
 
   const animationTimeOut = async () => {
@@ -56,6 +56,26 @@ const MainContainer = ({ isActive, setIsActive }) => {
     }
   };
 
+  const ActionsBanner = () => (
+    <div
+      className="d-flex mb-2 justify-content-around"
+      style={{ width: "70%" }}
+    >
+      <div className="d-flex align-items-center">
+        <FaRegEye />
+        <p className="m-0 ml-2 action-banner-text">12</p>
+      </div>
+      <div className="d-flex align-items-center">
+        <FaRegHeart />
+        <p className="m-0 ml-2 action-banner-text">23</p>
+      </div>
+      <div className="d-flex align-items-center">
+        <FaRegStar />
+        <p className="m-0 ml-2 action-banner-text">12</p>
+      </div>
+    </div>
+  );
+
   return (
     <>
       <BasicModal
@@ -66,9 +86,10 @@ const MainContainer = ({ isActive, setIsActive }) => {
       <section className="global-container">
         <header>
           <img src="proxycat_logo.svg" className="main-logo" />
-          <p className="header-subtitle">FRONTEND TIPS</p>
+          <p className=" mb-0 header-subtitle">FRONTEND TIPS</p>
+          <p className="">BETA</p>
         </header>
-        <h1 className="mt-5 snack-title">{infoSnacks[rand].title}</h1>
+        <h1 className="mt-4 snack-title">{infoSnacks[rand].title}</h1>
         <p className="snack-category">{infoSnacks[rand].category}</p>
         <div className="snack-container">
           <div className="snack-info">
@@ -82,12 +103,13 @@ const MainContainer = ({ isActive, setIsActive }) => {
               />
             ))}
           </div>
-          <div className="snack-image-button">
+          <div className="d-flex flex-column align-items-center">
             <img
               aria-label="cat profile picture"
               src="programmingCat.png"
               className="snack-image"
             />
+            <ActionsBanner />
             <div style={{ position: "relative" }}>
               <Button className="snack-button" onClick={handleNewSnack}>
                 <FaRedo style={{ marginRight: "10px" }} />
