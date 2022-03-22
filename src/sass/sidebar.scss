@@ -1,0 +1,62 @@
+/* ProxyCat styles */
+.sidebar {
+  width: 30%;
+  min-height: 100vh;
+  text-align: center;
+  background-color: #333333;
+  color: white;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  &-about {
+    max-width: 80%;
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
+
+  &-about a {
+    text-decoration: none;
+  }
+  &-profile-img {
+    max-width: 8rem;
+    margin-top: 2rem;
+  }
+  &-badge {
+    background-color: rgb(255, 238, 0);
+    color: black;
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 5px;
+    border-radius: 8px;
+    font-size: 16px;
+    animation-duration: 2s;
+    animation-name: example;
+  }
+}
+
+.sidebar-coffe {
+  &-img {
+    max-width: 2rem;
+  }
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-circle {
+    background-color: #fedc00;
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: #e2c504;
+      cursor: pointer;
+    }
+  }
+}

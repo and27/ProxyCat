@@ -1,6 +1,6 @@
 {
   "name": "proxycat",
-  "homepage":"http://proxycat.pweb.studio",
+  "homepage": "http://proxycat.pweb.studio",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -39,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "sass": "^1.49.9"
   }
 }

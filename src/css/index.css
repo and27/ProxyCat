@@ -1,0 +1,315 @@
+/* ProxyCat styles */
+.sidebar {
+  width: 30%;
+  min-height: 100vh;
+  text-align: center;
+  background-color: #333333;
+  color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.sidebar-about {
+  max-width: 80%;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.sidebar-about a {
+  text-decoration: none;
+}
+
+.sidebar-profile-img {
+  max-width: 8rem;
+  margin-top: 2rem;
+}
+
+.sidebar-badge {
+  background-color: #ffee00;
+  color: black;
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 5px;
+  border-radius: 8px;
+  font-size: 16px;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-name: example;
+          animation-name: example;
+}
+
+.sidebar-coffe-img {
+  max-width: 2rem;
+}
+
+.sidebar-coffe-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sidebar-coffe-circle {
+  background-color: #fedc00;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sidebar-coffe-circle:hover {
+  background-color: #e2c504;
+  cursor: pointer;
+}
+
+.snack-title {
+  font-weight: 600;
+}
+
+.snack-category {
+  background-color: black;
+  color: white;
+  display: inline;
+  padding: 0 2rem;
+  border-radius: 5px;
+}
+
+.snack-category::before {
+  content: "#";
+}
+
+.snack-image {
+  width: 20rem;
+  margin-top: 2rem;
+  margin-right: -1.5rem;
+}
+
+.snack-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 80%;
+  margin: 0 auto;
+  margin-top: 3rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.snack-info {
+  text-align: left;
+}
+
+.snack-button {
+  padding: 1rem 2rem;
+  background-color: #352971ff;
+  border-color: #352971ff;
+  line-height: 1rem;
+  border-radius: 25px;
+  transition: 1s;
+  -webkit-transition: 1s;
+  /* Safari */
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+}
+
+.snack-button:hover {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-color: #3a3a3a;
+  letter-spacing: 1px;
+}
+
+.snack-button:active {
+  top: 1px;
+  background-color: #352971ff !important;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(85, 55, 119, 0.322) !important;
+          box-shadow: 0 0 0 0.2rem rgba(85, 55, 119, 0.322) !important;
+}
+
+.snack-button:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(85, 55, 119, 0.322);
+          box-shadow: 0 0 0 0.2rem rgba(85, 55, 119, 0.322);
+  background-color: #352971ff;
+}
+
+.App {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header-subtitle {
+  letter-spacing: 3px;
+  font-size: 11px;
+}
+
+@-webkit-keyframes example {
+  from {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes example {
+  from {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.social-footer {
+  position: fixed;
+  bottom: 0;
+  right: calc(15% - 50px);
+}
+
+.social-icons-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 1rem 0;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 25px;
+  color: black;
+  padding: 0.3rem;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  color: white;
+  background-color: #3d3d3d;
+}
+
+.global-container {
+  width: 70%;
+  min-height: 100vh;
+  text-align: center;
+  background-color: #efefef;
+  background: url("../../public/background_figure.png") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.main-logo {
+  margin-top: 1.5rem;
+  max-width: 7rem;
+}
+
+.info-subtitle::first-letter {
+  color: #352971ff;
+  font-weight: 600;
+}
+
+.dark-button {
+  padding: 0.5rem 1.5rem;
+  background-color: black;
+  border-radius: 25px;
+}
+
+.action-banner-text {
+  color: gray;
+}
+
+.info-container {
+  opacity: 0;
+}
+
+.animate {
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+  opacity: 1;
+}
+
+.path-button {
+  background-color: white;
+  border-radius: 100px;
+  padding: 7px;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.path-button:hover {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+@media screen and (max-width: 900px) {
+  .App {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: relative;
+  }
+  .global-container {
+    width: 100% !important;
+    min-height: 4rem;
+  }
+  .sidebar {
+    width: 100% !important;
+    min-height: 4rem;
+  }
+  .social-footer {
+    position: static;
+  }
+  .snack-image {
+    display: none;
+  }
+  .snack-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .snack-button {
+    margin-bottom: 2rem;
+  }
+}
+/*# sourceMappingURL=index.css.map */

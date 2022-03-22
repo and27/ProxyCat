@@ -1,6 +1,8 @@
-:root {
-  --main-color: #352971ff;
-}
+@import "./sidebar";
+@import "./snack";
+
+$main-color: #352971ff;
+
 .App {
   display: flex;
 }
@@ -17,28 +19,6 @@
   to {
     transform: scale(1);
   }
-}
-
-.sidebar-coffe-img {
-  max-width: 2rem;
-}
-.sidebar-coffe-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.sidebar-coffe-circle {
-  background-color: #fedc00;
-  width: 60px;
-  height: 60px;
-  border-radius: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.sidebar-coffe-circle:hover {
-  background-color: #e2c504;
-  cursor: pointer;
 }
 
 .social-footer {
@@ -74,40 +54,9 @@
   min-height: 100vh;
   text-align: center;
   background-color: #efefef;
-  background: url("../public/background_figure.png") no-repeat center center
+  background: url("../../public/background_figure.png") no-repeat center center
     fixed;
   background-size: cover;
-}
-
-.snack-title {
-  font-weight: 600;
-}
-.snack-category {
-  background-color: black;
-  color: white;
-  display: inline;
-  padding: 0 2rem;
-  border-radius: 5px;
-}
-.snack-category::before {
-  content: "#";
-}
-
-.snack-image {
-  width: 20rem;
-  margin-top: 2rem;
-  margin-right: -1.5rem;
-}
-.snack-container {
-  display: flex;
-  max-width: 80%;
-  margin: 0 auto;
-  margin-top: 3rem;
-  justify-content: space-between;
-}
-
-.snack-info {
-  text-align: left;
 }
 
 .main-logo {
@@ -116,36 +65,8 @@
 }
 
 .info-subtitle::first-letter {
-  color: var(--main-color);
+  color: $main-color;
   font-weight: 600;
-}
-
-.snack-button {
-  padding: 1rem 2rem;
-  background-color: var(--main-color);
-  border-color: var(--main-color);
-  line-height: 1rem;
-  border-radius: 25px;
-  transition: 1s;
-  -webkit-transition: 1s; /* Safari */
-  transition-timing-function: ease-out;
-}
-
-.snack-button:hover {
-  transition: 0.5s;
-  background-color: #3a3a3a;
-  letter-spacing: 1px;
-}
-
-.snack-button:active {
-  top: 1px;
-  background-color: var(--main-color) !important;
-  box-shadow: 0 0 0 0.2rem rgba(85, 55, 119, 0.322) !important;
-}
-
-.snack-button:focus {
-  box-shadow: 0 0 0 0.2rem rgba(85, 55, 119, 0.322);
-  background-color: var(--main-color);
 }
 
 .dark-button {
