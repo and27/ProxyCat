@@ -1,12 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import SocialFooter from "./SocialFooter";
 import { MdAccountTree } from "react-icons/md";
 import { IconContext } from "react-icons";
 import { Button } from "react-bootstrap";
 
+const PathSection = () => {
+  const [show, setShow] = useState(false);
+  return (
+    <div className="path-container">
+      <Button
+        className="path-button"
+        onClick={() => {
+          setShow(!show);
+        }}
+      >
+        <IconContext.Provider
+          value={{ size: "1.5rem", className: "path-button-icon" }}
+        >
+          <MdAccountTree /> Library
+        </IconContext.Provider>
+      </Button>
+      {show && (
+        <article className="path-modal">
+          Library catalog available very soon
+        </article>
+      )}
+    </div>
+  );
+};
+
 const Sidebar = ({ isActive }) => {
   return (
     <section className="sidebar">
+      <PathSection />
       <div>
         <h2 className="mt-5">About</h2>
         <img
@@ -25,17 +51,12 @@ const Sidebar = ({ isActive }) => {
           .
         </p>
       </div>
-      <div>
-        <Button className="path-button" onClick={() => {}}>
-          <IconContext.Provider value={{ size: "2rem", color: "#352971" }}>
-            <MdAccountTree />
-          </IconContext.Provider>
-        </Button>
-      </div>
       <div className="sidebar-coffe-container">
         <h4 className="mt-5">Invite us a coffe</h4>
         <div className="sidebar-coffe-circle">
-          <img src="coffe_transparent.png" className="sidebar-coffe-img" />
+          <a href="https://www.buymeacoffee.com/andresbandA" target="_blank">
+            <img src="coffe_transparent.png" className="sidebar-coffe-img" />
+          </a>
         </div>
       </div>
       <div>
