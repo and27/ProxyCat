@@ -7,6 +7,16 @@ $main-color: #352971ff;
   display: flex;
 }
 
+.action-icon {
+  color: gray;
+  transition: 0.5s;
+}
+
+.action-icon:hover {
+  color: black;
+  transform: scale(1.1);
+}
+
 .header-subtitle {
   letter-spacing: 3px;
   font-size: 11px;
@@ -86,20 +96,51 @@ $main-color: #352971ff;
   transition: 0.7s;
   opacity: 1;
 }
-
-.path-button {
-  background-color: white;
-  border-radius: 100px;
-  padding: 7px;
+.path-container {
   position: fixed;
   top: 15px;
   right: 15px;
-  transition: 0.5s;
-  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }
 
-.path-button:hover {
-  transform: scale(1.15);
+.path-modal {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 10px;
+}
+.path-button {
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  padding: 7px;
+  transition: 0.6s;
+  cursor: pointer;
+  &-icon {
+    transition: 0.6s;
+    color: black;
+  }
+
+  &:hover {
+    background-color: white;
+    color: black;
+    border: none;
+  }
+
+  &:active {
+    background-color: white !important;
+    color: black;
+    border: none !important;
+  }
+  &:focus {
+    background-color: white !important;
+    color: black;
+    border: none !important;
+  }
 }
 
 @media screen and (max-width: 900px) {
