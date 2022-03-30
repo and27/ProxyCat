@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
-import { FaRedo, FaRegEye, FaRegHeart, FaRegStar } from "react-icons/fa";
+import { IconContext } from "react-icons";
+import { FaRedo, FaRegEye, FaRegHeart } from "react-icons/fa";
 import infoSnacks from "../SnacksContent";
 import BasicModal from "./BasicModal";
 import InfoContainer from "./InfoContainer";
+import ReactGA from "react-ga";
 
 const MainContainer = ({ isActive, setIsActive }) => {
   const [attempts, setAttempts] = useState(0);
@@ -13,6 +15,28 @@ const MainContainer = ({ isActive, setIsActive }) => {
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
+  //Actions Banner
+  const [views, setViews] = useState(10);
+  const [likes, setLikes] = useState(10);
+
+  const getCustomRand = (max, offset) => {
+    const randResult = Math.floor(Math.random() * max + offset);
+    return randResult;
+  };
+
+  useEffect(() => {
+    const viewsNumber = getCustomRand(100, 30);
+    setViews(viewsNumber);
+    const likes = getCustomRand(30, 3);
+    setLikes(likes);
+  }, [attempts]);
+
+  const handleLikes = () => {
+    if (localStorage.getItem("likes") === null) {
+      setLikes(likes + 1);
+      localStorage.setItem("likes", 1);
+    }
+  };
   //TODO: handle true random snacks
   const min = 0;
   const max = 2;
@@ -39,7 +63,6 @@ const MainContainer = ({ isActive, setIsActive }) => {
   }, []);
 
   const handleNewSnack = () => {
-    console.log(attempts);
     if (attempts > 2 && !isActive) {
       handleShow();
     } else {
@@ -56,25 +79,36 @@ const MainContainer = ({ isActive, setIsActive }) => {
     }
   };
 
-  const ActionsBanner = () => (
-    <div
-      className="d-flex mb-2 justify-content-around"
-      style={{ width: "70%" }}
-    >
-      <div className="d-flex align-items-center">
-        <FaRegEye />
-        <p className="m-0 ml-2 action-banner-text">12</p>
+  const ActionsBanner = ({ views, likes }) => {
+    return (
+      <div
+        className="d-flex mb-2 justify-content-around"
+        style={{ width: "40%" }}
+      >
+        <div className="d-flex align-items-center">
+          <IconContext.Provider value={{ className: "action-icon" }}>
+            <FaRegEye />
+          </IconContext.Provider>
+          <p className="m-0 ml-2 action-banner-text">{views}</p>
+        </div>
+        <div className="d-flex align-items-center">
+          <IconContext.Provider value={{ className: "action-icon" }}>
+            <FaRegHeart onClick={handleLikes} />
+          </IconContext.Provider>
+
+          <p className="m-0 ml-2 action-banner-text">{likes}</p>
+        </div>
+        {/* TODO: Add download icon */}
+        {/* <div className="d-flex align-items-center">
+          <IconContext.Provider value={{ className: "action-icon" }}>
+            <FaRegStar />
+          </IconContext.Provider>
+
+          <p className="m-0 ml-2 action-banner-text">12</p>
+        </div> */}
       </div>
-      <div className="d-flex align-items-center">
-        <FaRegHeart />
-        <p className="m-0 ml-2 action-banner-text">23</p>
-      </div>
-      <div className="d-flex align-items-center">
-        <FaRegStar />
-        <p className="m-0 ml-2 action-banner-text">12</p>
-      </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <>
@@ -109,13 +143,18 @@ const MainContainer = ({ isActive, setIsActive }) => {
               src="programmingCat.png"
               className="snack-image"
             />
-            <ActionsBanner />
+            <ActionsBanner views={views} likes={likes} />
             <div style={{ position: "relative" }}>
               <Button className="snack-button" onClick={handleNewSnack}>
                 <FaRedo style={{ marginRight: "10px" }} />
                 Get snack
               </Button>
-              {!isActive && <p> {3 - attempts} snacks left today.</p>}
+              {!isActive && (
+                <p className="snack-attempts">
+                  {" "}
+                  {3 - attempts} snacks left today.
+                </p>
+              )}
             </div>
           </div>
         </div>

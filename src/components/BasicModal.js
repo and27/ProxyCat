@@ -6,7 +6,7 @@ import ModalBody from "./ModalBody";
 const BasicModal = ({ show, handleClose, handleActivation }) => {
   return (
     <>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} animation={false}>
         <Button
           onClick={handleClose}
           style={{

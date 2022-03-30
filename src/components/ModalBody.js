@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
 const ModalBody = ({ handleActivation }) => {
   const [code, setCode] = useState("");
+
   return (
     <div className="text-center m-3">
       <header>
@@ -31,7 +32,6 @@ const ModalBody = ({ handleActivation }) => {
           style={{ borderRadius: "25px" }}
           onChange={(e) => {
             setCode(e.target.value);
-            console.log(e.target.value);
           }}
         ></Form.Control>
         <Button className="ml-2 dark-button" onClick={handleActivation(code)}>
@@ -45,7 +45,6 @@ const ModalBody = ({ handleActivation }) => {
         <Button
           className="snack-button"
           style={{ padding: "0.75rem 2rem", marginTop: "1rem" }}
-          handleActivation={handleActivation}
         >
           Get more information
         </Button>
