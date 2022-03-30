@@ -25,6 +25,10 @@ const MainContainer = ({ isActive, setIsActive }) => {
   };
 
   useEffect(() => {
+    ReactGA.pageview(window.location.pathname);
+  }, []);
+
+  useEffect(() => {
     const viewsNumber = getCustomRand(100, 30);
     setViews(viewsNumber);
     const likes = getCustomRand(30, 3);
