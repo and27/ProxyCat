@@ -16,14 +16,11 @@ const ModalBody = ({ handleActivation }) => {
       </p>
       <img src="library.png" style={{ width: "50%", margin: "0 0 1rem 0" }} />
       <ul className="text-left">
-        <li>Get access to all snacks related to the categories you choose.</li>
-        <li>Download snacks as images.</li>
-
-        <li>Get free access to 3 Proxy Days.</li>
-        <li>
-          Get access to special discounts and promotions in our courses and
-          events.
-        </li>
+        <li>Learn new tricks every day.</li>
+        <li>Refresh the concepts you already know.</li>
+        <li>Keep updated with new frontend trends.</li>
+        <li>Save or download your favorite snacks.</li>
+        <li>Get discounts and promotions in our courses and events.</li>
       </ul>
       <Form.Group className="d-flex align-items-center">
         <Form.Label>License</Form.Label>

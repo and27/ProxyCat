@@ -50,26 +50,28 @@ const snackTechPlatforms = {
         "https://www.pluralsight.com/content/dam/pluralsight/newsroom/brand-assets/logos/PS_logo_F-01.png",
       subtitle: "Pluralsight",
       description:
-        "The size is relative to the font size of the parent element.",
+        "Technology learning platform for software developers, IT admins, and creative professionals. \
+        With 3,000+ courses and new ones added daily.",
     },
     {
       imageUrl:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Codecademy.svg/1200px-Codecademy.svg.png",
       subtitle: "Codeacademy",
       description:
-        "The size is relative to the font size of the root <html> element.",
+        "Web and mobile-based platform that teaches employable digital skills to millions of users worldwide.",
     },
     {
       imageUrl:
         "https://seeklogo.com/images/L/lynda_com-logo-9336EB3940-seeklogo.com.png",
-      subtitle: "Lynda",
+      subtitle: "LinkedIn Learning",
       description:
-        "The size is relative to the font size of the root <html> element.",
+        "LinkedIn Learning was founded in 2015 as the successor of Lynda.com, an e-learning platform \
+        by LinkedIn 20 years after its inception..",
     },
   ],
 };
 const snackWCAG = {
-  title: "WCAG Principals",
+  title: "4 Principles of Accesibility (WCAG)",
   category: "Accesibility",
   snacks: [
     {
@@ -103,14 +105,14 @@ const snackJSFrameworks = {
         "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1184px-Vue.js_Logo_2.svg.png",
       subtitle: "Vue",
       description:
-        "Easiest learning Curve. Vue.js syntax is similar to JavaScript basics and HTML",
+        "Vue.js syntax is similar to JavaScript basics and HTML. Then, it has the learning Curve. ",
     },
     {
       imageUrl:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/1200px-React.svg.png",
       subtitle: "React",
       description:
-        "The learning curve is considered intermediate. The React strategy is: 'everything is JavaScript'",
+        "The learning curve is considered intermediate. The React strategy is: 'everything is JavaScript'.",
     },
     {
       imageUrl:
@@ -174,6 +176,96 @@ const snackContrastChecker = {
     },
   ],
 };
+
+const reactHooks = {
+  title: "React hooks",
+  category: "React",
+  snacks: [
+    {
+      subtitle: "useRef()",
+      description:
+        "We need useRef() when we want to keep a live referene to a DOM Element or when we need \
+        to store state values and not trigger re-renders.",
+    },
+    {
+      subtitle: "useContext()",
+      description:
+        "useContext() lets you subscribe to React context without introducing nesting.",
+    },
+    {
+      subtitle: "useEffect()",
+      description:
+        "useEffect() adds the ability to perform side effects from a function component. ",
+    },
+  ],
+};
+
+const jsVariablesScope = {
+  title: "JavaScript Variable Scope",
+  category: "JavaScript",
+  snacks: [
+    {
+      subtitle: "Global Scope",
+      description:
+        "A variable declared at the top of a program or outside of a function.",
+    },
+    {
+      subtitle: "Local Scope",
+      description: "A variable declared and accessed within a function.",
+    },
+    {
+      subtitle: "Block Scope",
+      description:
+        "Variables that are accesed only in the inmediate block \
+        The keywords 'let' and ''const' provide Block Scope in JavaScript.",
+    },
+  ],
+};
+
+const reactEvents = {
+  title: "Synthetic Events vs Native Events",
+  category: "React",
+  snacks: [
+    {
+      subtitle: "Synthetic React Events",
+      description:
+        "A synthetic event is a cross-browser wrapper around the browser's native event.\
+      It has the same interface as the browser's native event, including stopPropagation() and preventDefault(), \
+      except the events work identically across all browsers.",
+    },
+    {
+      subtitle: "Browser Native Events",
+      description:
+        "Native events are the ones that the browser generates, such as click mouseover , mouseup etc. \
+        The full list of those can be found on the MDN Event reference page.",
+    },
+  ],
+};
+
+const reactTrends1 = {
+  title: "React Trends (Part I)",
+  category: "React, Trends",
+  snacks: [
+    {
+      subtitle: "React Server Side Rendering",
+      description:
+        "React server-side rendering is set to gain more market acceptance in the coming years. ",
+    },
+    {
+      subtitle: "Single-Page Applications (SPA) in a vast number of business",
+      description:
+        "SPAs allow users to consume information quickly without constantly loading new pages. \
+        Thus, it ensures a smooth user experience. ",
+    },
+    {
+      subtitle: "Machine Learning Web Applications Using ReactJs",
+      description:
+        "With this technology, you can build high-performing web applications that predict\
+         outcomes and find solutions to problems.",
+    },
+  ],
+};
+
 const infoSnacks = [
   snackCSS,
   snackTest,
@@ -182,6 +274,9 @@ const infoSnacks = [
   snackJSFrameworks,
   snackJSDate,
   snackContrastChecker,
+  reactHooks,
+  jsVariablesScope,
+  reactEvents,
 ];
 
 export default infoSnacks;
