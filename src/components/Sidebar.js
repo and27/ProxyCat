@@ -1,38 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
+import SettingsMenu from "./SettingsMenu";
 import SocialFooter from "./SocialFooter";
-import { MdAccountTree } from "react-icons/md";
-import { IconContext } from "react-icons";
-import { Button } from "react-bootstrap";
 
-const PathSection = () => {
-  const [show, setShow] = useState(false);
+const Sidebar = ({ isActive, isHidden }) => {
   return (
-    <div className="path-container">
-      <Button
-        className="path-button"
-        onClick={() => {
-          setShow(!show);
-        }}
-      >
-        <IconContext.Provider
-          value={{ size: "1.5rem", className: "path-button-icon" }}
-        >
-          <MdAccountTree /> Library
-        </IconContext.Provider>
-      </Button>
-      {show && (
-        <article className="path-modal">
-          Library catalog available very soon
-        </article>
-      )}
-    </div>
-  );
-};
-
-const Sidebar = ({ isActive }) => {
-  return (
-    <section className="sidebar">
-      <PathSection />
+    <section className={`sidebar ${isHidden && "sidebar-hide"}`}>
+      <SettingsMenu />
       <div>
         <h2 className="mt-5">About</h2>
         <img
@@ -40,15 +13,10 @@ const Sidebar = ({ isActive }) => {
           src="ProfilePicture.png"
           className="sidebar-profile-img"
         />
-        {isActive && <p className="sidebar-badge">PRO</p>}
+        {isActive && <p className="sidebar-badge">Premium</p>}
         <p className="sidebar-about">
           ProxyCat provides actionable tips and tricks about frontend
-          programming (design, security, accesibility, and much more). The
-          project is maintained by{" "}
-          <a href="https://andresbanda.com" target="_blank">
-            <strong>Andrés Banda</strong>
-          </a>
-          .
+          programming (design, security, accesibility, and much more).
         </p>
       </div>
       <div className="sidebar-coffe-container">
@@ -60,6 +28,12 @@ const Sidebar = ({ isActive }) => {
         </div>
       </div>
       <div>
+        <p className="pt-3" style={{ fontSize: "13px" }}>
+          Created by{" "}
+          <a href="https://andresbanda.com" target="_blank">
+            <strong>Andrés Banda</strong>
+          </a>
+        </p>
         <SocialFooter />
       </div>
     </section>
