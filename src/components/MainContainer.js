@@ -1,13 +1,68 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Button } from "react-bootstrap";
+import ReactGA from "react-ga";
 import { IconContext } from "react-icons";
+import {
+  IoArrowForwardCircleSharp,
+  IoArrowBackCircleSharp,
+} from "react-icons/io5";
 import { FaRedo, FaRegEye, FaRegHeart } from "react-icons/fa";
 import infoSnacks from "../SnacksContent";
 import BasicModal from "./BasicModal";
 import InfoContainer from "./InfoContainer";
-import ReactGA from "react-ga";
+import { themeContext } from "../App";
 
-const MainContainer = ({ isActive, setIsActive }) => {
+const getCustomRand = (max, offset) => {
+  const randResult = Math.floor(Math.random() * max + offset);
+  return randResult;
+};
+
+const ActionsBanner = ({ views, attempts }) => {
+  const [likes, setLikes] = useState(10);
+
+  const handleLikes = () => {
+    if (localStorage.getItem("likes") === null) {
+      setLikes(likes + 1);
+      localStorage.setItem("likes", 1);
+    }
+  };
+
+  useEffect(() => {
+    const likes = getCustomRand(30, 3);
+    setLikes(likes);
+  }, [attempts]);
+
+  return (
+    <div
+      className="d-flex mb-2 justify-content-around"
+      style={{ width: "40%" }}
+    >
+      <div className="d-flex align-items-center">
+        <IconContext.Provider value={{ className: "action-icon" }}>
+          <FaRegEye />
+        </IconContext.Provider>
+        <p className="m-0 ml-2 action-banner-text">{views}</p>
+      </div>
+      <div className="d-flex align-items-center">
+        <IconContext.Provider value={{ className: "action-icon" }}>
+          <FaRegHeart onClick={handleLikes} />
+        </IconContext.Provider>
+
+        <p className="m-0 ml-2 action-banner-text">{likes}</p>
+      </div>
+      {/* TODO: Add download icon */}
+      {/* <div className="d-flex align-items-center">
+        <IconContext.Provider value={{ className: "action-icon" }}>
+          <FaRegStar />
+        </IconContext.Provider>
+
+        <p className="m-0 ml-2 action-banner-text">12</p>
+      </div> */}
+    </div>
+  );
+};
+
+const MainContainer = ({ isActive, setIsActive, setHideSidebar, sidebar }) => {
   const [attempts, setAttempts] = useState(0);
   const [rand, setRand] = useState(0);
   const [animate, setAnimate] = useState("");
@@ -15,14 +70,10 @@ const MainContainer = ({ isActive, setIsActive }) => {
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
+  const { darkTheme } = useContext(themeContext);
+
   //Actions Banner
   const [views, setViews] = useState(10);
-  const [likes, setLikes] = useState(10);
-
-  const getCustomRand = (max, offset) => {
-    const randResult = Math.floor(Math.random() * max + offset);
-    return randResult;
-  };
 
   useEffect(() => {
     ReactGA.pageview(window.location.pathname);
@@ -31,22 +82,14 @@ const MainContainer = ({ isActive, setIsActive }) => {
   useEffect(() => {
     const viewsNumber = getCustomRand(100, 30);
     setViews(viewsNumber);
-    const likes = getCustomRand(30, 3);
-    setLikes(likes);
   }, [attempts]);
 
-  const handleLikes = () => {
-    if (localStorage.getItem("likes") === null) {
-      setLikes(likes + 1);
-      localStorage.setItem("likes", 1);
-    }
-  };
   //TODO: handle true random snacks
   const min = 0;
   const max = 2;
   const setNewRand = () => {
     // const randNumber = Math.floor(Math.random() * (max - min)) + min
-    setRand((rand + 1) % 7);
+    setRand((rand + 1) % 10);
   };
 
   const animationTimeOut = async () => {
@@ -83,37 +126,6 @@ const MainContainer = ({ isActive, setIsActive }) => {
     }
   };
 
-  const ActionsBanner = ({ views, likes }) => {
-    return (
-      <div
-        className="d-flex mb-2 justify-content-around"
-        style={{ width: "40%" }}
-      >
-        <div className="d-flex align-items-center">
-          <IconContext.Provider value={{ className: "action-icon" }}>
-            <FaRegEye />
-          </IconContext.Provider>
-          <p className="m-0 ml-2 action-banner-text">{views}</p>
-        </div>
-        <div className="d-flex align-items-center">
-          <IconContext.Provider value={{ className: "action-icon" }}>
-            <FaRegHeart onClick={handleLikes} />
-          </IconContext.Provider>
-
-          <p className="m-0 ml-2 action-banner-text">{likes}</p>
-        </div>
-        {/* TODO: Add download icon */}
-        {/* <div className="d-flex align-items-center">
-          <IconContext.Provider value={{ className: "action-icon" }}>
-            <FaRegStar />
-          </IconContext.Provider>
-
-          <p className="m-0 ml-2 action-banner-text">12</p>
-        </div> */}
-      </div>
-    );
-  };
-
   return (
     <>
       <BasicModal
@@ -121,15 +133,41 @@ const MainContainer = ({ isActive, setIsActive }) => {
         handleClose={handleClose}
         handleActivation={handleActivation}
       />
-      <section className="global-container">
+
+      <section
+        className={`global-container ${sidebar && "global-container-hide"} ${
+          darkTheme && "global-container-dark dark-theme"
+        }`}
+      >
         <header>
           <img src="proxycat_logo.svg" className="main-logo" />
           <p className=" mb-0 header-subtitle">FRONTEND TIPS</p>
           <p className="">BETA</p>
         </header>
         <h1 className="mt-4 snack-title">{infoSnacks[rand].title}</h1>
-        <p className="snack-category">{infoSnacks[rand].category}</p>
+        <p className="snack-category" onClick={handleShowCategories}>
+          {infoSnacks[rand].category}
+        </p>
         <div className="snack-container">
+          <div className="sidebar-menu-toggle">
+            <Button
+              className="path-button"
+              onClick={() => {
+                setHideSidebar(!sidebar);
+                console.log(sidebar);
+              }}
+            >
+              <IconContext.Provider
+                value={{ size: "1.5rem", className: "path-button-icon" }}
+              >
+                {sidebar ? (
+                  <IoArrowBackCircleSharp />
+                ) : (
+                  <IoArrowForwardCircleSharp />
+                )}
+              </IconContext.Provider>
+            </Button>
+          </div>
           <div className="snack-info">
             {infoSnacks[rand].snacks.map((info, idx) => (
               <InfoContainer
@@ -147,7 +185,7 @@ const MainContainer = ({ isActive, setIsActive }) => {
               src="programmingCat.png"
               className="snack-image"
             />
-            <ActionsBanner views={views} likes={likes} />
+            <ActionsBanner views={views} attempts={attempts} />
             <div style={{ position: "relative" }}>
               <Button className="snack-button" onClick={handleNewSnack}>
                 <FaRedo style={{ marginRight: "10px" }} />

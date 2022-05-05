@@ -3,6 +3,10 @@
 
 $main-color: #352971ff;
 
+.dark-theme{
+  color:white
+}
+
 .App {
   display: flex;
 }
@@ -60,6 +64,7 @@ $main-color: #352971ff;
 }
 
 .global-container {
+  position:relative;
   width: 70%;
   min-height: 100vh;
   text-align: center;
@@ -67,6 +72,16 @@ $main-color: #352971ff;
   background: url("../../public/background_figure.png") no-repeat center center
     fixed;
   background-size: cover;
+  transition: 1s;
+}
+.global-container-hide{
+  width:100%;
+  transition: 1s;
+}
+.global-container-dark{
+  background:url("");
+  background-color:rgb(29, 27, 27);
+
 }
 
 .main-logo {
@@ -107,6 +122,7 @@ $main-color: #352971ff;
 
 .path-modal {
   background-color: white;
+  box-shadow: 0 0 35px 1px rgb(53, 53, 53);
   color: black;
   border-radius: 5px;
   padding: 20px;
@@ -116,7 +132,7 @@ $main-color: #352971ff;
   background-color: white;
   color: black;
   border: none;
-  border-radius: 10px;
+  border-radius: 50px;
   padding: 7px;
   transition: 0.6s;
   cursor: pointer;

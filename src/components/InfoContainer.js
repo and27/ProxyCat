@@ -1,6 +1,4 @@
 import React from "react";
-import { IconContext } from "react-icons";
-import { GoPin } from "react-icons/go";
 
 const InfoContainer = ({ imageUrl, subtitle, description, animate }) => {
   return (
