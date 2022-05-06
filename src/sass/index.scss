@@ -26,6 +26,29 @@ $main-color: #352971ff;
   font-size: 11px;
 }
 
+.button-modal{
+  padding-bottom: 1rem;
+  width: 40px;
+  height: 40px;
+  background-color: $main-color;
+  color: white;
+  border-color: transparent;
+  border-radius: 0 0 0 15px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 2;
+}
+.menu-selected{
+  transition:0.5s;
+  padding-left:0.5rem;
+  color:gray; 
+  
+}
+.menu-selected:hover{
+  color:black;
+  cursor:pointer;
+}
 @keyframes example {
   from {
     transform: scale(1.5);

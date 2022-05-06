@@ -2,11 +2,12 @@ import React, { useContext, useState } from "react";
 import { Button, Container, Form, Row } from "react-bootstrap";
 import { IconContext } from "react-icons";
 import { FiSettings } from "react-icons/fi";
+import { RiArrowDropRightLine } from "react-icons/ri";
 import { IoLanguage, IoListCircle } from "react-icons/io5";
 import { MdDarkMode } from "react-icons/md";
 import { themeContext } from "../App";
 
-const SettingsMenu = () => {
+const SettingsMenu = ({ handleShowCategories }) => {
   const [show, setShow] = useState(false);
   const { darkTheme, setDarkTheme } = useContext(themeContext);
   return (
@@ -24,19 +25,27 @@ const SettingsMenu = () => {
         </IconContext.Provider>
       </Button>
       {show && (
-        <article className="path-modal" style={{ minWidth: "200px" }}>
-          <p className="m-0 text-left">Settings</p>
+        <article className="path-modal px-2 py-3" style={{ minWidth: "250px" }}>
+          <p className="ml-3 text-left">Settings</p>
           <hr className="m-2" />
           <Container>
-            <Row className="align-items-center justify-content-between">
-              <IoLanguage />
-              <p className="mb-0">Language</p>
-              <p className="text-secondary mb-0">English</p>
+            <Row className="justify-content-between m-0">
+              <Row className="align-items-center  m-0">
+                <IoLanguage />
+                <p className="mb-0 ml-2">Language</p>
+              </Row>
+              <Row className="align-items-center m-0 menu-selected">
+                <p className="mb-0">English</p>
+                <RiArrowDropRightLine size="26" />
+              </Row>
             </Row>
-            <Row className="align-items-center justify-content-between">
-              <MdDarkMode />
-              <p className="mb-0">Dark Theme</p>
+            <Row className="justify-content-between m-0">
+              <Row className="align-items-center m-0">
+                <MdDarkMode />
+                <p className="mb-0 ml-2">Dark Theme</p>
+              </Row>
               <Form.Check
+                className="m-0 p-0"
                 type="switch"
                 id={"test"}
                 label={""}
@@ -45,10 +54,18 @@ const SettingsMenu = () => {
                 }}
               />
             </Row>
-            <Row className="align-items-center justify-content-between">
-              <IoListCircle />
-              <p className="mb-0">Categories</p>
-              <p className="text-secondary mb-0">2/7</p>
+            <Row className="justify-content-between m-0">
+              <Row className="align-items-center m-0">
+                <IoListCircle />
+                <p className="mb-0 ml-2">Categories</p>
+              </Row>
+              <Row
+                className="align-items-center m-0 menu-selected"
+                onClick={handleShowCategories}
+              >
+                <p className="mb-0">2/7</p>
+                <RiArrowDropRightLine size="26" />
+              </Row>
             </Row>
           </Container>
         </article>

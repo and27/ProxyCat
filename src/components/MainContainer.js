@@ -69,7 +69,6 @@ const MainContainer = ({ isActive, setIsActive, setHideSidebar, sidebar }) => {
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
-
   const { darkTheme } = useContext(themeContext);
 
   //Actions Banner
@@ -145,16 +144,13 @@ const MainContainer = ({ isActive, setIsActive, setHideSidebar, sidebar }) => {
           <p className="">BETA</p>
         </header>
         <h1 className="mt-4 snack-title">{infoSnacks[rand].title}</h1>
-        <p className="snack-category" onClick={handleShowCategories}>
-          {infoSnacks[rand].category}
-        </p>
+        <p className="snack-category">{infoSnacks[rand].category}</p>
         <div className="snack-container">
           <div className="sidebar-menu-toggle">
             <Button
               className="path-button"
               onClick={() => {
                 setHideSidebar(!sidebar);
-                console.log(sidebar);
               }}
             >
               <IconContext.Provider

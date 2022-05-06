@@ -7,22 +7,7 @@ const BasicModal = ({ show, handleClose, handleActivation }) => {
   return (
     <>
       <Modal show={show} onHide={handleClose} animation={false}>
-        <Button
-          onClick={handleClose}
-          style={{
-            paddingBottom: "1rem",
-            width: "40px",
-            height: "40px",
-            backgroundColor: "white",
-            color: "black",
-            borderColor: "black",
-            borderRadius: "25px",
-            position: "absolute",
-            top: -10,
-            right: -10,
-            zIndex: 2,
-          }}
-        >
+        <Button className="button-modal" onClick={handleClose}>
           <IoClose
             onClick={handleClose}
             style={{ cursor: "pointer", zIndex: 1 }}

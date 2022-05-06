@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import CategoriesModal from "./CategoriesModal";
 import SettingsMenu from "./SettingsMenu";
 import SocialFooter from "./SocialFooter";
 
 const Sidebar = ({ isActive, isHidden }) => {
+  const [showCategories, setShowCategories] = useState(false);
+
+  const handleCloseCategories = () => setShowCategories(false);
+  const handleShowCategories = () => {
+    setShowCategories(true);
+  };
   return (
     <section className={`sidebar ${isHidden && "sidebar-hide"}`}>
-      <SettingsMenu />
+      <CategoriesModal
+        show={showCategories}
+        handleClose={handleCloseCategories}
+      />
+      <SettingsMenu handleShowCategories={handleShowCategories} />
       <div>
         <h2 className="mt-5">About</h2>
         <img
